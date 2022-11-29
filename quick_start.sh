@@ -16,6 +16,7 @@ else
 fi 
 
 # reuse channels already exist
+rm -rf ~/.relayer/config
 mkdir -p ~/.relayer/config
 curl https://raw.githubusercontent.com/codelaw1/relayer/main/examples/config_GOC.yaml >>~/.relayer/config/config.yaml
 
