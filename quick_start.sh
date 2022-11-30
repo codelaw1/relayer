@@ -31,17 +31,24 @@ rly keys restore sputnik default "$SEC"
 
 
 # this may be faild due to facuet limit
-echo "deposit for relayer account $ADDR"
+echo "deposit prov for relayer account $ADDR"
 curl "https://provider-faucet.goc.earthball.xyz/request?address=${ADDR}&chain=provider"
-echo
+echo "deposit sput"
 curl "http://sputnik-faucet.goc.earthball.xyz/request?address=${ADDR}&chain=sputnik"
-echo
+# echo "deposit pol"
 # curl "http://apollo-faucet.goc.earthball.xyz/request?address=${ADDR}&chain=apollo"
+echo "deposit gopher"
+curl http://gopher-faucet.goc.earthball.xyz/request?address=${ADDR}&chain=gopher
+echo "deposit hero"
+curl http://hero-faucet.goc.earthball.xyz/request?address=${ADDR}&chain=hero-1
 
 echo "waiting coins filling to relayer account "
 sleep 30s
+
 rly q balance provider
 rly q balance sputnik
+rly q balance hero
+rly q balance gopher
 
 echo "relay starting..."
 rly start -d 
