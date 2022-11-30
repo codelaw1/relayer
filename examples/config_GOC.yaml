@@ -9,10 +9,10 @@ chains:
         value:
             key: default
             chain-id: provider
-            rpc-addr: http://18.189.27.142:26657/
+            rpc-addr: https://provider-rpc.ztake.org:443/
             account-prefix: cosmos
             keyring-backend: test
-            gas-adjustment: 1.5
+            gas-adjustment: 2
             gas-prices: 0.025uprov
             min-gas-amount: 0
             debug: false
@@ -24,10 +24,10 @@ chains:
         value:
             key: default
             chain-id: sputnik
-            rpc-addr: http://44.202.26.21:26657/
+            rpc-addr: https://sputnik-rpc.ztake.org:443/
             account-prefix: cosmos
             keyring-backend: test
-            gas-adjustment: 1.5
+            gas-adjustment: 2
             gas-prices: 0.01unik
             min-gas-amount: 0
             debug: false
@@ -42,13 +42,13 @@ chains:
             rpc-addr: http://127.0.0.1:26657
             account-prefix: cosmos
             keyring-backend: test
-            gas-adjustment: 1.2
-            gas-prices: 0.0uhero
+            gas-adjustment: 2
+            gas-prices: 0.01uhero
             min-gas-amount: 0
             debug: false
             timeout: 20s
             output-format: json
-            sign-mode: direct         
+            sign-mode: direct
 paths:
     provider-sputnik:
         src:
@@ -68,7 +68,7 @@ paths:
             client-id: 07-tendermint-3
             connection-id: connection-14
         dst:
-            chain-id: hero
+            chain-id: hero-1
             client-id: 07-tendermint-0
             connection-id: connection-0
         src-channel-filter:
