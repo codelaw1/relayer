@@ -34,6 +34,21 @@ chains:
             timeout: 20s
             output-format: json
             sign-mode: direct
+    hero:
+        type: cosmos
+        value:
+            key: default
+            chain-id: hero-1
+            rpc-addr: http://127.0.0.1:26657
+            account-prefix: cosmos
+            keyring-backend: test
+            gas-adjustment: 1.2
+            gas-prices: 0.0uhero
+            min-gas-amount: 0
+            debug: false
+            timeout: 20s
+            output-format: json
+            sign-mode: direct         
 paths:
     provider-sputnik:
         src:
@@ -47,4 +62,15 @@ paths:
         src-channel-filter:
             rule: "allowlist"
             channel-list: [channel-0,channel-1]
-
+    provider-hero:
+        src:
+            chain-id: provider
+            client-id: 07-tendermint-3
+            connection-id: connection-14
+        dst:
+            chain-id: hero
+            client-id: 07-tendermint-0
+            connection-id: connection-0
+        src-channel-filter:
+            rule: "allowlist"
+            channel-list: [channel-8,channel-9]
